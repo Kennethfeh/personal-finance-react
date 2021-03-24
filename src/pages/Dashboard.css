@@ -1,0 +1,101 @@
+.dashboard h1 {
+  margin-bottom: 2rem;
+  color: #2c3e50;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.balance {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #2c3e50;
+  margin: 0;
+}
+
+.income {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #27ae60;
+  margin: 0;
+}
+
+.expense {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #e74c3c;
+  margin: 0;
+}
+
+.count {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #3498db;
+  margin: 0;
+}
+
+.transaction-list {
+  margin: 1rem 0;
+}
+
+.transaction-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.transaction-item:last-child {
+  border-bottom: none;
+}
+
+.transaction-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.category {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.transaction-amount.income {
+  color: #27ae60;
+  font-weight: bold;
+}
+
+.transaction-amount.expense {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+.view-all-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #3498db;
+  text-decoration: none;
+}
+
+.view-all-link:hover {
+  text-decoration: underline;
+}
+
+.empty-state {
+  text-align: center;
+  color: #666;
+  padding: 2rem 0;
+}
+
+.empty-state a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+.empty-state a:hover {
+  text-decoration: underline;
+}

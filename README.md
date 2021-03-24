@@ -1,70 +1,157 @@
-# Getting Started with Create React App
+# Personal Finance React Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern React application for the Personal Finance API, providing a comprehensive user interface for managing personal finances with full CRUD operations.
+
+## Features
+
+- 🔐 **Authentication**: User registration and login with JWT tokens
+- 📊 **Dashboard**: Overview of financial health with key metrics and recent activity
+- 💰 **Transaction Management**: Add, view, filter, and delete income/expense transactions
+- 🎯 **Budget Tracking**: Create and monitor budgets with visual progress indicators
+- 📱 **Responsive Design**: Works seamlessly on desktop, tablet, and mobile devices
+- ⚡ **Modern Architecture**: Built with React 18, Context API, and React Router
+
+## Tech Stack
+
+- **React 18** - Modern React with hooks and functional components
+- **React Router** - Client-side routing with protected routes
+- **Context API** - State management for authentication and data
+- **Axios** - HTTP client for API communication
+- **CSS3** - Modern styling with flexbox/grid layouts
+
+## Prerequisites
+
+- Node.js 16+ and npm
+- Personal Finance API running on `http://localhost:3000`
+
+## Installation
+
+1. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+
+2. **Start development server**:
+   ```bash
+   npm start
+   ```
+
+3. **Open in browser**: Navigate to `http://localhost:3000`
 
 ## Available Scripts
 
-In the project directory, you can run:
+- `npm start` - Start development server with hot reload
+- `npm run build` - Build for production
+- `npm test` - Run test suite
+- `npm run eject` - Eject from Create React App (not recommended)
 
-### `npm start`
+## Project Structure
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```
+src/
+├── components/         # Reusable React components
+│   ├── Navbar.js       # Navigation component
+│   ├── Navbar.css      # Navigation styles
+│   └── ProtectedRoute.js # Route protection component
+├── contexts/           # React Context providers
+│   └── AuthContext.js  # Authentication context and hooks
+├── pages/              # Page components
+│   ├── Login.js        # Login page
+│   ├── Register.js     # Registration page
+│   ├── Dashboard.js    # Dashboard overview
+│   ├── Transactions.js # Transaction management
+│   ├── Budgets.js      # Budget tracking
+│   └── Auth.css        # Authentication page styles
+├── services/           # API services
+│   └── api.js          # Axios configuration and interceptors
+├── App.js              # Main application component
+├── App.css             # Global styles
+└── index.js            # Application entry point
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features Overview
 
-### `npm test`
+### Authentication System
+- JWT-based authentication with automatic token management
+- Registration and login forms with validation
+- Protected routes that require authentication
+- Automatic redirect to login on token expiration
+- Context-based authentication state management
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Dashboard
+- Financial overview with key metrics:
+  - Total balance calculation
+  - Monthly income tracking
+  - Monthly expense tracking
+  - Active budget count
+- Recent transactions preview
+- Quick navigation to detailed sections
 
-### `npm run build`
+### Transaction Management
+- **Add Transactions**: Create new income or expense entries
+- **View All Transactions**: List all transactions with sorting
+- **Filter Transactions**: Filter by income/expense type
+- **Delete Transactions**: Remove unwanted transactions
+- **Transaction Details**: Description, amount, category, and date
+- **Real-time Updates**: Immediate UI updates after operations
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Budget Management
+- **Create Budgets**: Set spending limits for categories
+- **Visual Progress**: Progress bars showing spending vs budget
+- **Alert System**: Color-coded warnings when approaching limits
+- **Budget Status**: Track if on track, approaching limit, or over budget
+- **Active/Inactive**: Toggle budgets on and off
+- **Delete Budgets**: Remove outdated budget categories
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## API Integration
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The frontend communicates with the Personal Finance API:
 
-### `npm run eject`
+- **Base URL**: `http://localhost:3000/api/v1`
+- **Authentication**: JWT token in Authorization header
+- **Automatic Error Handling**: Logout on 401 responses
+- **Request Interceptors**: Automatic token attachment
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### API Endpoints Used
+- `POST /auth/register` - User registration
+- `POST /auth/login` - User authentication
+- `GET /auth/profile` - Get current user profile
+- `GET /transactions` - Fetch all transactions
+- `POST /transactions` - Create new transaction
+- `DELETE /transactions/:id` - Delete transaction
+- `GET /budgets` - Fetch all budgets
+- `POST /budgets` - Create new budget
+- `PUT /budgets/:id` - Update budget
+- `DELETE /budgets/:id` - Delete budget
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Development
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Authentication Flow
+1. User submits login/registration form
+2. API returns JWT token and user data
+3. Token stored in localStorage
+4. AuthContext provides authentication state
+5. Protected routes check authentication status
+6. Automatic logout on token expiration
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### State Management
+- **AuthContext**: Manages user authentication state
+- **Local State**: Component-level state for forms and data
+- **Real-time Updates**: Optimistic UI updates for better UX
 
-## Learn More
+### Responsive Design
+- Mobile-first approach with responsive breakpoints
+- Flexible layouts using CSS Grid and Flexbox
+- Touch-friendly interface elements
+- Consistent spacing and typography
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Browser Support
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Chrome 87+
+- Firefox 78+
+- Safari 14+
+- Edge 88+
 
-### Code Splitting
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+MIT License
